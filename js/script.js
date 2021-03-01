@@ -18,7 +18,7 @@ function handleSubmit(evt) {
       
     $input.val(""); //remove user input
 
-    $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=,&appid=5d103950c4eefff71dae1484657a90e6" + term)
+    $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=,&appid=" + term)
     .then(function(data) {
     console.log('weather Data ', data);
     weatherData = data;
