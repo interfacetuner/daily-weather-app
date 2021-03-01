@@ -1,5 +1,4 @@
-// const API_KEY ="18a2aaf2";
-// const BASE_URL ="";
+
 
 // cached element refs/// selected dom elements
 const $weather = $(`#weather`);
@@ -36,6 +35,3 @@ function render() {
     $wind.text(weatherData.wind.speed);
   }
 }
-
-// zip=08234
-// zip=08401,
