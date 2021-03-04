@@ -1,5 +1,3 @@
-
-
 // cached element refs/// selected dom elements
 const $weather = $(`#weather`);
 const $temp = $(`#temp`);
@@ -13,18 +11,18 @@ $('form').on('submit', handleSubmit);
 function handleSubmit(evt) {
   evt.preventDefault(); //stop default browser from refresh
 
-  const term = $input.val();//user input
-      
-    $input.val(""); //remove user input
+  const term = $input.val(); //user input
 
-    $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=,&appid=" + term)
-    .then(function(data) {
-    console.log('weather Data ', data);
-    weatherData = data;
-    render();
-  }, function(error) {
-    alert('Error ', error);
-  })
+  $input.val(""); //remove user input
+
+  $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=" + term + ",&appid=a1485c824c09eba8f02d2b3019d75504")
+    .then(function (data) {
+      console.log('weather Data ', data);
+      weatherData = data;
+      render();
+    }, function (error) {
+      alert('Error ', error);
+    })
 
 };
 // update page 
@@ -35,3 +33,6 @@ function render() {
     $wind.text(weatherData.wind.speed);
   }
 }
+
+
+// $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=,&appid=a1485c824c09eba8f02d2b3019d75504" + term)
