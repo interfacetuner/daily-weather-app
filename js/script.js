@@ -5,7 +5,7 @@ const $wind = $(`#wind`);
 const $input = $(`input[type="text"]`);
 
 // event listeners
-$('form').on('submit', handleSubmit);
+$("form").on("submit", handleSubmit);
 
 // functions         -any event
 function handleSubmit(evt) {
@@ -15,17 +15,22 @@ function handleSubmit(evt) {
 
   $input.val(""); //remove user input
 
-  $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=" + term + ",&appid=a1485c824c09eba8f02d2b3019d75504")
-    .then(function (data) {
-      console.log('weather Data ', data);
+  $.ajax(
+    "http://api.openweathermap.org/data/2.5/weather?zip=" +
+      term +
+      ",&appid=a1485c824c09eba8f02d2b3019d75504&units=imperial"
+  ).then(
+    function (data) {
+      console.log("weather Data ", data);
       weatherData = data;
       render();
-    }, function (error) {
-      alert('Error ', error);
-    })
-
-};
-// update page 
+    },
+    function (error) {
+      alert("Error ", error);
+    }
+  );
+}
+// update page
 function render() {
   if (weatherData) {
     $weather.text(weatherData.name);
@@ -33,6 +38,5 @@ function render() {
     $wind.text(weatherData.wind.speed);
   }
 }
-
 
 // $.ajax("http://api.openweathermap.org/data/2.5/weather?zip=,&appid=a1485c824c09eba8f02d2b3019d75504" + term)
